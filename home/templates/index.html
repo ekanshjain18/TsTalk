@@ -1,0 +1,60 @@
+
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock title  %}
+
+{% block body %}
+<!--Welcome to Home Page !!!  -->
+{% load static %}
+{% static "images" as baseUrl %}
+
+<div class="container-fluid px-1 ">
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+          <img src="/static/tedtalkpic.jpg" width = "50" height = "300" class="d-block w-100 " alt="...">
+      </div>
+      <!-- <div class="carousel-item">
+        <img src="https://source.unsplash.com/2000x400/?TedTalk" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://source.unsplash.com/2000x400/?nature,water" class="d-block w-100" alt="...">
+      </div> -->
+    </div>
+  </div>
+</div>
+
+<div class="row-5">
+  <div class="col">
+    <h1 style="text-align:center">Total Speakers Are :- {{speakers.count}} </h1>
+    <h2 style="text-align:center">Speaker Details  :-  </h2>
+   </div>
+  </div> 
+{% for speaker in speakers %}
+<div class="album py-3 bg-light">
+  <div class="container">
+
+    <div class="row-1">
+      <div class="col-md-4">
+        <div class="card mr-5 shadow-sm">
+          <img src="{{speaker.img.url}}" width = "50" height = "200" class="d-block w-100" alt="...">
+
+          <div class="card-body">
+            <p class="card-text">Name : {{speaker.name}}</p>
+            <p class="card-text">Desc : {{speaker.desc}}</p>
+            
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+{% endfor %}      
+  
+    </div>
+  </div>
+</div>
+{% endblock body %}
